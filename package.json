@@ -1,0 +1,25 @@
+{
+  "name": "backend-api",
+  "version": "0.0.1",
+  "description": "Backend API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lazlojuly/backend-api.git"
+  },
+  "author": "lazlojuly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lazlojuly/backend-api/issues"
+  },
+  "homepage": "https://github.com/lazlojuly/backend-api#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "config": "^1.21.0",
+    "cors": "^2.7.1",
+    "express": "^4.14.0"
+  }
+}
