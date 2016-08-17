@@ -1,1 +1,4 @@
-"extends": "onpono-base"
+{
+  "extends": "onpono-base",
+  "env": { "mocha": true }
+}
