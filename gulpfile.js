@@ -1,22 +1,46 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const gulp = require('gulp')
-const mocha = require('gulp-mocha')
+const babel = require('gulp-babel')
+// const mocha = require('gulp-mocha')
 const runSequence = require('run-sequence')
+const del = require('del')
 
 const config = {
 	src: './src/**/*.js',
-	test: './src/test/**/*.js',
+	build: './build',
+	test: './build/test/**/*.spec.js',
+	babel: {
+		presets: ['es2016'],
+	},
 }
 
-gulp.task('test-watch', () => {
+
+gulp.task('develop', () => {
 	runSequence(
-		'test',
-		() => { gulp.watch([config.src, config.test], ['test']) }
+		'watch'
+		// TODO add lint
 	)
 })
 
-gulp.task('test', () => {
-	gulp.src(config.test, { read: false })
-		.pipe(mocha({ reporter: 'spec' }))
-		.on('error', err => console.log(err.toString()))
+gulp.task('default', () => {
+	runSequence(
+		'clean',
+		'babel'
+	)
+})
+
+
+// helpers
+gulp.task('clean', () => {
+	return del(config.build)
+})
+
+gulp.task('watch', () => {
+	gulp.watch(config.src, ['babel'])
+})
+
+gulp.task('babel', () => {
+	return gulp.src(config.src)
+		.pipe(babel(config.babel))
+		.pipe(gulp.dest(config.build))
 })
