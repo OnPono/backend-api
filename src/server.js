@@ -1,4 +1,5 @@
 const express = require('express')
+const boom = require('express-boom')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const config = require('config')
@@ -7,6 +8,7 @@ const db = require('./db')
 const api = require('./api')
 
 const app = express()
+app.use(boom())
 app.use(cors({
 	origin: true,
 	credentials: true,

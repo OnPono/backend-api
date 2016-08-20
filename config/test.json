@@ -3,5 +3,20 @@
 		"mongo": {
 			"host": "localhost/test"
 		}
+	},
+	"logging": {
+		"winston": {
+			"file": {
+				"level": "info",
+				"filename": "app.test.log",
+				"dirname": "logs",
+				"maxsize": 20971520,
+				"maxfiles": 5
+			},
+			"console": {
+				"level": "info",
+				"colorize": true
+			}
+		}
 	}
 }

@@ -3,5 +3,20 @@
 		"mongo": {
 			"host": "localhost/backend-api"
 		}
+	},
+	"logging": {
+		"winston": {
+			"file": {
+				"level": "info",
+				"filename": "app.log",
+				"dirname": "logs",
+				"maxsize": 20971520,
+				"maxfiles": 5
+			},
+			"console": {
+				"level": "info",
+				"colorize": true
+			}
+		}
 	}
 }
