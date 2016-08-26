@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "build": "npm install && gulp",
-    "start": "nodemon ./build/server.js",
+    "start": "nodemon ./src/server.js",
     "test": "NODE_ENV=test gulp test",
     "test-watch": "NODE_ENV=test gulp test-watch",
-    "develop": "NODE_ENV=test gulp && nodemon ./build/server.js && gulp develop"
+    "develop": "NODE_ENV=test && nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,10 +31,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-preset-latest": "^6.14.0",
     "cz-conventional-changelog": "^1.2.0",
-    "del": "^2.2.2",
     "eslint": "^3.3.1",
     "eslint-config-onpono-base": "^1.0.0",
     "eslint-plugin-import": "^1.13.0",
