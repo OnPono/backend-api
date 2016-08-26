@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const serviceUtils = require('node-service-utils')
+const { BaseService, ModelFactory } = require('node-service-utils')
 
 function userModel(db) {
 	const schema = {
@@ -8,13 +8,13 @@ function userModel(db) {
 			password: { type: String, required: true },
 	}
 
-	const modelFactory = new serviceUtils.ModelFactory(db)
+	const modelFactory = new ModelFactory(db)
 	const model = modelFactory.create('User', schema)
 
 	return model
 }
 
-class UserService extends serviceUtils.BaseService {
+class UserService extends BaseService {
 	// ... custom CRUD methods
 }
 
