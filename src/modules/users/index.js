@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const { BaseService, ModelFactory } = require('node-service-utils')
+const ModelFactory = require('node-service-utils').ModelFactory
+const BaseService = require('node-service-utils').BaseService
 
 function userModel(db) {
 	const schema = {
@@ -16,6 +17,9 @@ function userModel(db) {
 
 class UserService extends BaseService {
 	// ... custom CRUD methods
+	create() {
+		return true
+	}
 }
 
 

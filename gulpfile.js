@@ -10,7 +10,7 @@ const config = {
 	build: './build',
 	test: './build/test/**/*.spec.js',
 	babel: {
-		presets: ['es2016'],
+		presets: ['latest'],
 	},
 }
 

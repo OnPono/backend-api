@@ -1,5 +1,5 @@
 const express = require('express')
-const log = require('../modules/log')
+const log = require('../modules/logger')
 const userService = require('../modules/users')
 
 

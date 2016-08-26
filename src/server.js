@@ -3,6 +3,7 @@ const boom = require('express-boom')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const config = require('config')
+const logger = require('./modules/logger')
 
 const db = require('./db')
 const api = require('./api')
@@ -20,12 +21,12 @@ app.use('/', api)
 
 db.connectToMongoDb(config.db.mongo)
 .then(startServer)
-.catch(err => console.error(err))
+.catch(err => logger.error(err))
 
 
 module.exports = app
 
 // helpers
 function startServer() {
-	app.listen('1337', () => { console.log('Backend API is running on port 1337') })
+	app.listen('1337', () => { logger.log('Backend API is running on port 1337') })
 }

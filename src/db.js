@@ -1,3 +1,4 @@
+const logger = require('./modules/logger')
 const mongoose = require('mongoose')
 
 module.exports = {
@@ -7,10 +8,10 @@ module.exports = {
 			mongoose.Promise = global.Promise
 			mongoose.connect(mongoConfig.host, err => {
 				if (err) {
-					console.error(`db.js: Failed to connect to MongoDB at ${mongoConfig.host}`, err)
+					logger.error(`db.js: Failed to connect to MongoDB at ${mongoConfig.host}`, err)
 					reject(err)
 				} else {
-					console.log(`db.js: Successfully connected to MongoDB at ${mongoConfig.host}`)
+					logger.log(`db.js: Successfully connected to MongoDB at ${mongoConfig.host}`)
 					resolve(mongoose)
 				}
 			})
